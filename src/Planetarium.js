@@ -6,7 +6,14 @@ export default function App () {
     const [photos, setPhotos] = useState([]);
 
     useEffect(()=> {
-
+        axios.get("", {
+            params: {}
+        })
+        .then(response) => {
+            const images = response.data;
+            console.log("we are all made of stars", stars);
+            setPhotos(stars);
+        }
     }, []);
     return (
         <>
