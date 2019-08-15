@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -31,10 +31,14 @@
     transform: rotate(360deg);
   }
 }
-/* .screen {
-  color: yellow;
-  word-wrap: normal;
-}
+
+ .screen {
+  background-image: url("https://i.imgur.com/KHdXGUA.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+} */
+
+/*
 .photo-container {
   height: auto;
   background: black;

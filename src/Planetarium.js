@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import APODCard from "./APODCard.js";
+import { Segment, Image, Message } from 'semantic-ui-react';
 
 export default function Planetarium () {
     const [photo, setPhotos] = useState([]);
-
+    
     useEffect(()=> {
         axios.get("https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo", {
             params: {}
@@ -21,13 +21,16 @@ export default function Planetarium () {
     return (
         <div className="screen">
         
-                    <APODCard
-                        title={photo.title}
-                        key={photo.date}
-                        url={photo.url}
-                        explanation={photo.explanation}
-                    />
-          
-                   </div>
+        <Segment>
+        <Image src={photo.url} size='medium' centered />
+        <Message color="blue"
+            header={photo.title}
+            content={photo.explanation}
+        />
+        </Segment>
+
+        </div>
+    
+                   
     );
 };
