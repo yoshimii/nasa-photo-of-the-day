@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Segment, Image, Message } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
 
 export default function Planetarium () {
     const [photo, setPhotos] = useState([]);
@@ -22,11 +23,12 @@ export default function Planetarium () {
         <div className="screen">
         
         <Segment>
-        <Image src={photo.url} size='medium' centered />
+        <Image src={photo.url} size='big' centered />
         <Message color="blue"
             header={photo.title}
             content={photo.explanation}
         />
+        <Image src={"https://i.imgur.com/KHdXGUA.png"} size='big' centered />
         </Segment>
 
         </div>
