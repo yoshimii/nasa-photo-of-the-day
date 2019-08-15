@@ -1,23 +1,37 @@
-import React, { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
-import DateChooser from "./DatePicker";
+import React from 'react';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
+import styled from "styled-components";
+import { getDate } from 'date-fns';
 
-const Calendar = () => {
+export default class MyForm extends React.Component {
     
-    const [date, setDate] = useState(new Date())
+  constructor(props) {
+    super(props);
+    this.handleDayChange = this.handleDayChange.bind(this);
+    this.state = {
+      selectedDay: new Date(),
+    };
+  }
+
+  handleDayChange(day) {
+    this.setState({ selectedDay: day });
+  }
+
+  render() {
+    const { selectedDay } = this.state;
+    
+    const FormattedDay = `${selectedDay.getFullYear()}-${selectedDay.getMonth()}-${selectedDay.getDate()}`
+    console.log(FormattedDay)
 
     return (
-    
-        <div className="calendar">
-            {console.log(date)}
-            <DatePicker
-            dateFormat="yyyy-MM-dd"
-            selected={date}
-            onChange={handleChange}
-            />     
+      <div>
+        {selectedDay && <p>Day: {selectedDay.toLocaleDateString()}</p>}
+        {!selectedDay && <p>Choose a day</p>}
+        <DayPickerInput onDayChange={this.handleDayChange} />
 
-        </div>
+        {console.log(`${selectedDay.getFullYear()}-${selectedDay.getMonth()}-${selectedDay.getDate()}`)}
+      </div>
     );
-};
-
-export default Calendar; 
+  }
+}

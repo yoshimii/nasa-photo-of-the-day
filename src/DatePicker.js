@@ -17,6 +17,9 @@ const StyledParagraph = styled.p`
     font-weight: bold;
 `;
 
+// handleDayChange(day) {
+//     props.setState({ selectedDay= day });
+//   }
 
     return (
     
@@ -26,8 +29,9 @@ const StyledParagraph = styled.p`
             <DayPickerInput
             selectedDay={props.day}
             onChange={props.handleChange}
+           
             />     
-
+        {console.log(props.day)}
         </CenteredDiv>
     );
 };
