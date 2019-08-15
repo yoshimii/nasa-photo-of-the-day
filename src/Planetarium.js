@@ -14,6 +14,9 @@ export default function Planetarium () {
             console.log("we are all made of stars", response);
             setPhotos(images);
         })
+        .catch(err => {
+            console.log(err);
+        })
     }, []);
     return (
         <div className="screen">
