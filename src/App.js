@@ -1,13 +1,13 @@
 import React from "react";
+import Planetarium from "./Planetarium.js";
+import DateChooser from "./DatePicker";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
-      </p>
+      <Planetarium/>
+      <DateChooser/>
     </div>
   );
 }

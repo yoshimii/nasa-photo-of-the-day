@@ -1,33 +1,30 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import APODCard from "./APODCard";
+import APODCard from "./APODCard.js";
 
-export default function App () {
-    const [photos, setPhotos] = useState([]);
+export default function Planetarium () {
+    const [photo, setPhotos] = useState([]);
 
     useEffect(()=> {
-        axios.get("", {
+        axios.get("https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo", {
             params: {}
         })
-        .then(response) => {
-            const images = response.data;
-            console.log("we are all made of stars", stars);
-            setPhotos(stars);
-        }
+        .then(response => {
+            const images = response.data
+            console.log("we are all made of stars", response);
+            setPhotos(images);
+        })
     }, []);
     return (
-        <>
         <div className="screen">
-            {photos.map(photo => {
-                return (
+        
                     <APODCard
-                    key={photo.id}
-                    image={photo.url}
-                    description={photo.description}
-                )
-            })}
-            <APODCard/>
-        </div>
-        </>
+                        title={photo.title}
+                        key={photo.date}
+                        url={photo.url}
+                        explanation={photo.explanation}
+                    />
+          
+                   </div>
     );
 };
