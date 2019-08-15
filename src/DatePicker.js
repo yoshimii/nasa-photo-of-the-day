@@ -1,20 +1,18 @@
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import Planetarium from "./Planetarium";
-import "react-datepicker/dist/react-datepicker.css";
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 
 
 const DateChooser = props => {
-    const [date, setDate] = useState(new Date())
+    const [day, setDay] = useState(props)
 
 
     return (
     
-        <div className="calendar" key={props.date}>
-            {console.log(date)}
-            <DatePicker
-            dateFormat="yyyy-MM-dd"
-            selected={props.date}
+        <div className="calendar" key={props.day}>
+            {console.log(props.value)}
+            <DayPickerInput
+            selectedDay={props.day}
             onChange={props.handleChange}
             />     
 

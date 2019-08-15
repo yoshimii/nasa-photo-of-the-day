@@ -6,8 +6,9 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Planetarium/>
       <DateChooser/>
+      <Planetarium/>
+      
     </div>
   );
 }
