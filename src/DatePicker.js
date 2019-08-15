@@ -12,12 +12,17 @@ const CenteredDiv = styled.div`
     display: flex;
     justify-content: center;
 `;
+const StyledParagraph = styled.p`
+    color: white;
+    font-weight: bold;
+`;
 
 
     return (
     
         <CenteredDiv className="Calendar"  key={props.day}>
             {console.log(props.value)}
+            <StyledParagraph>Choose a date:</StyledParagraph>
             <DayPickerInput
             selectedDay={props.day}
             onChange={props.handleChange}

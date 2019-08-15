@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Segment, Image, Message } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-
+import styled from "styled-components";
 export default function Planetarium () {
     const [photo, setPhotos] = useState([]);
-    
+    // const ScreenBackground = styled.div`
+    // background: black;
+    // `;
     useEffect(()=> {
         axios.get("https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo", {
             params: {}
@@ -22,9 +24,9 @@ export default function Planetarium () {
     return (
         <div className="screen">
         
-        <Segment>
+        <Segment inverted color='black'>
         <Image src={photo.url} size='big' centered />
-        <Message color="blue"
+        <Message size='large' color="blue"
             header={photo.title}
             content={photo.explanation}
         />
