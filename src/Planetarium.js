@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Segment, Image, Message } from 'semantic-ui-react';
+import { Image, Message, Header, Icon } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import styled from "styled-components";
-import MyForm from "./Calendar"
+import 'react-day-picker/lib/style.css';
 export default function Planetarium (props) {
     const [photo, setPhotos] = useState([]);
-    // const ScreenBackground = styled.div`
-    // background: black;
-    // `;
-    useEffect(()=> {
+
+        useEffect(()=> {
         axios.get("https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo", {
-            params: {date: props.selectedDay}
+            params: {}
         })
         .then(response => {
             const images = response.data
-            console.log("we are all made of stars", response);
             setPhotos(images);
         })
         .catch(err => {
@@ -24,18 +20,29 @@ export default function Planetarium (props) {
     }, []);
     return (
         <div className="screen">
-        
-        <Segment inverted color='black'>
-        <Image src={photo.url} size='big' centered />
-        <Message size='large' color="blue"
+
+
+  <div>
+    <Header as='h2' icon textAlign='center'>
+      <Icon name='moon' circular />
+      <Header.Content>Astronomy Picture of the Day</Header.Content>
+    </Header>
+    
+    <div className="ui rotate left reveal">
+        <div className="ui visible content">
+        <Image centered size="big" src="https://www.nasa.gov/sites/default/files/thumbnails/image/nasa-logo-web-rgb.png" className="ui circular image"/>
+        </div>
+        <div className="ui hidden content">
+        <Image centered src={photo.url} className="ui massive circular image"/>
+    <Message size='large' color="blue"
             header={photo.title}
             content={photo.explanation}
         />
-        <Image src={"https://i.imgur.com/KHdXGUA.png"} size='big' centered />
-        </Segment>
+        <Image src={"https://i.imgur.com/Fng2uX8.png"} size='big' centered />
 
-        </div>
-    
-                   
-    );
+    </div>
+    </div>
+  </div>
+  </div>
+)
 };

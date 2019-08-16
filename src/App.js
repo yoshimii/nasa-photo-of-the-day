@@ -1,12 +1,11 @@
 import React from "react";
 import Planetarium from "./Planetarium.js";
-import DateChooser from "./DatePicker";
 import "./App.css";
 import { createGlobalStyle } from 'styled-components'
 import MyForm from "./Calendar"
 const GlobalStyle = createGlobalStyle`
   body {
-    background: black;
+    background: #a59d9d;
   }
 `
 
@@ -19,7 +18,7 @@ function App() {
   <GlobalStyle />
 </>
       <MyForm/>
-      <DateChooser/>
+      
       <Planetarium/>
       
     </div>
