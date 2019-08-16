@@ -22,7 +22,8 @@ export default class MyForm extends React.Component {
     const CenteredDiv = styled.div`
     display: flex;
     justify-content: center;
-    margin: 1.5rem;
+    padding: 1.5rem;
+    
 `;
     const { selectedDay } = this.state;
     

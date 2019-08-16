@@ -4,9 +4,10 @@ import "./App.css";
 import { createGlobalStyle } from 'styled-components'
 import MyForm from "./Calendar"
 const GlobalStyle = createGlobalStyle`
-  body {
-    background: #a59d9d;
+  .App {
+    background: linear-gradient(#e66465, #9198e5);
   }
+
 `
 
 
@@ -17,8 +18,8 @@ function App() {
         <>
   <GlobalStyle />
 </>
-      <MyForm/>
       
+<MyForm/>
       <Planetarium/>
       
     </div>

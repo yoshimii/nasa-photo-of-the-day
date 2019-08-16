@@ -33,8 +33,8 @@ export default function Planetarium (props) {
         <Image centered size="big" src="https://www.nasa.gov/sites/default/files/thumbnails/image/nasa-logo-web-rgb.png" className="ui circular image"/>
         </div>
         <div className="ui hidden content">
-        <Image centered src={photo.url} className="ui massive circular image"/>
-    <Message size='large' color="blue"
+        <Image centered src={photo.url} className="ui big circular image"/>
+    <Message size='tiny' color="blue"
             header={photo.title}
             content={photo.explanation}
         />
